@@ -2,8 +2,7 @@ import { db } from "@/server/db";
 import "@/styles/globals.css";
 
 import { Inter } from "next/font/google";
-import { Caveat } from "next/font/google";
-import { Kaushan_Script } from "next/font/google";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",

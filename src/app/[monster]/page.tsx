@@ -10,7 +10,9 @@ const kaushanScript = Kaushan_Script({
     weight: "400",
 });
 
-const caveat = Caveat();
+const caveat = Caveat({
+    subsets: ["latin"],
+});
 
 
 export default async function MonsterPage({
