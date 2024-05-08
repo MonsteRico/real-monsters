@@ -14,7 +14,7 @@ const caveat = Caveat({
   subsets: ["latin"],
 });
 
-async function generateStaticParams() {
+export async function generateStaticParams() {
   const monsters = await db.query.monsters.findMany();
   return monsters.map((monster) => ({
     params: { monster: monster.shortName },
