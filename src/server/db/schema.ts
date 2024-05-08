@@ -13,16 +13,14 @@ import { index, int, sqliteTableCreator, text } from "drizzle-orm/sqlite-core";
 export const createTable = sqliteTableCreator((name) => `real-monsters_${name}`);
 
 export const monsters = createTable(
-  "monster",
+  "monsters",
   {
     id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
-    name: text("name", { length: 256 }),
-    image: text("image", { length: 256 }),
+    name: text("name", { length: 256 }).notNull().default(""),
+    shortName: text("short_name", { length: 256 }).notNull().default(""),
+    image: text("image", { length: 256 }).notNull().default(""),
     fullName: text("full_name", { length: 256 }),
-    paragraphOne: text("paragraph_one", { length: 1024 }),
-    paragraphTwo: text("paragraph_two", { length: 1024 }),
-  },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
+    paragraphOne: text("paragraph_one", { length: 1024 }).notNull().default(""),
+    paragraphTwo: text("paragraph_two", { length: 1024 }).notNull().default(""),
+  }
 );
